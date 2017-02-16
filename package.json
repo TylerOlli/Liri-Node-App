@@ -1,0 +1,33 @@
+{
+  "name": "liri",
+  "version": "1.0.0",
+  "description": "Liri Node Application",
+  "main": "keys.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TylerOlli/Liri-Node-App.git"
+  },
+  "keywords": [
+    "Liri",
+    "Twitter",
+    "Spotify",
+    "Request",
+    "Node",
+    "Application"
+  ],
+  "author": "Tyler Olli",
+  "license": "ISC",
+  "dependencies": {
+    "twitter": "^1.7.0",
+    "spotify": "^0.3.0",
+    "request": "^2.79.0"
+  },
+  "bugs": {
+    "url": "https://github.com/TylerOlli/Liri-Node-App/issues"
+  },
+  "homepage": "https://github.com/TylerOlli/Liri-Node-App#readme"
+
+}
