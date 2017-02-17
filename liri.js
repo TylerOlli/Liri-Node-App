@@ -1,4 +1,4 @@
-var cmd = process.argv[2];
+var cmd1 = process.argv[2];
 var cmd2 = process.argv[3];
 
 var keys = require('./keys.js');
@@ -15,13 +15,26 @@ var client = new Twitter({
 });
 
  
-var params = {screen_name: 'fullstack_ninja'};
-client.get('statuses/user_timeline', params, function(error, tweets, response) {
-  if (!error) {
-    console.log(tweets);
-    writeLog(tweets);
-  }
-});
+function getTwitter(){
+	client.get('statuses/user_timeline',{screen_name: 'fullstack_ninja', count: 20},function(error, tweets, response){
+		if(error) throw error;
+		for(var i = 0; i < tweets.length; i++){
+			console.log('');
+			console.log('================');
+			console.log(tweets[i].text);
+			console.log(tweets[i].created_at);
+			console.log('================');
+			console.log('');
+
+			writeLog('');
+			writeLog('================');
+			writeLog(tweets[i].text);
+			writeLog(tweets[i].created_at);
+			writeLog('================');
+			writeLog('');
+		}
+	})	
+}
 
  
 spotify.search({ type: 'track', query: 'I Want it That Way' }, function(err, data) {
@@ -46,7 +59,7 @@ function writeLog(data){
 	})
 }
 
-switch(cmd) {
+switch(cmd1) {
 
 	case 'my-tweets':
 		getTwitter();

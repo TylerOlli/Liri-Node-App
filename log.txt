@@ -23,3 +23,21 @@ You didn't input a valid command
 [object Object]
 [object Object]
 [object Object]
+my-tweets
+
+================
+Hello World!
+Thu Feb 16 03:29:08 +0000 2017
+================
+
+[object Object]
+[object Object]
+my-tweets
+================
+
+Hello World!
+Thu Feb 16 03:29:08 +0000 2017
+================
+
+[object Object]
+[object Object]
