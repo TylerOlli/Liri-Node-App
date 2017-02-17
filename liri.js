@@ -4,7 +4,7 @@ var cmd2 = process.argv[3];
 var keys = require('./keys.js');
 var Twitter = require('twitter');
 var spotify = require('spotify');
-var mdb = require('moviedb')('c067d2c803a661fea4a55c14a7f1beee');
+var movieDB = require('moviedb')('c067d2c803a661fea4a55c14a7f1beee');
 var fs = require('fs');
 
 var client = new Twitter({
@@ -93,6 +93,69 @@ function getSpotify(query){
 	}	
 }
 
+function getMovies(movie){
+	if(cmd2){
+		movieDB.searchMovie({query: movie }, function(error, data){
+			if(error) throw error;
+			console.log('');
+		  	console.log(`Title: ${data.results[0].title}`);
+		  	console.log('=============');
+		  	console.log(`Year: ${data.results[0].release_date}`);
+		  	console.log('=============');
+			console.log(`Rating: ${data.results[0].vote_average}`)
+			console.log('=============');  	
+			console.log(`Language: ${data.results[0].original_language}`);
+		  	console.log('=============');
+			console.log(`Plot: ${data.results[0].overview}`);
+			console.log('');
+
+			writeLog('');
+		  	writeLog(`Title: ${data.results[0].title}`);
+		  	writeLog('=============');
+		  	writeLog(`Year: ${data.results[0].release_date}`);
+		  	writeLog('=============');
+			writeLog(`Rating: ${data.results[0].vote_average}`)
+			writeLog('=============');  	
+			writeLog(`Language: ${data.results[0].original_language}`);
+		  	writeLog('=============');
+			writeLog(`Plot: ${data.results[0].overview}`);
+			writeLog('');						
+		});			
+	}
+
+	else {
+		movieDB.searchTv({query: 'Southpark' }, function(error, data){
+			if(error) throw error;
+			console.log('');
+			console.log('You didn\'t put a movie in, so here you go: ');
+			console.log('');
+		  	console.log(`Title: ${data.results[0].original_name}`);
+		  	console.log('=============');
+		  	console.log(`Year: ${data.results[0].first_air_date}`);
+		  	console.log('=============');
+			console.log(`Rating: ${data.results[0].vote_average}`)
+			console.log('=============');  	
+			console.log(`Language: ${data.results[0].original_language}`);
+		  	console.log('=============');
+			console.log(`Plot: ${data.results[0].overview}`);
+			console.log('');	
+
+			writeLog('');
+			writeLog('You didn\'t put a movie in, so here you go: ');
+			writeLog('');
+		  	writeLog(`Title: ${data.results[0].original_name}`);
+		  	writeLog('=============');
+		  	writeLog(`Year: ${data.results[0].first_air_date}`);
+		  	writeLog('=============');
+			writeLog(`Rating: ${data.results[0].vote_average}`)
+			writeLog('=============');  	
+			writeLog(`Language: ${data.results[0].original_language}`);
+		  	writeLog('=============');
+			writeLog(`Plot: ${data.results[0].overview}`);
+			writeLog('');				
+		});
+	}
+}
 
 
 function writeLog(data){
