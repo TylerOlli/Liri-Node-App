@@ -41,3 +41,40 @@ Thu Feb 16 03:29:08 +0000 2017
 
 [object Object]
 [object Object]
+my-tweets
+
+================
+Hello World!
+Thu Feb 16 03:29:08 +0000 2017
+================
+
+[object Object]
+my-tweets
+================
+
+Hello World!
+Thu Feb 16 03:29:08 +0000 2017
+================
+
+spotify-this-song
+
+You didn't put a song title in, so here you go:
+
+Artist: Ace of Base
+=============
+Song title: The Sign
+=============
+Preview URL: https://p.scdn.co/mp3-preview/4c463359f67dd3546db7294d236dd0ae991882ff?cid=null
+=============
+Album: The Sign (US Album) [Remastered]
+
+spotify-this-song
+
+Michael Jackson
+=============
+Billie Jean
+=============
+https://p.scdn.co/mp3-preview/4eb779428d40d579f14d12a9daf98fc66c7d0be4?cid=null
+=============
+Thriller 25 Super Deluxe Edition
+

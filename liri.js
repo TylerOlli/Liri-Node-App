@@ -37,20 +37,62 @@ function getTwitter(){
 }
 
  
-spotify.search({ type: 'track', query: 'I Want it That Way' }, function(err, data) {
-    if ( err ) {
-        console.log('Error occurred: ' + err);
-        return;
-    }
- 
-    console.log(data);
-    writeLog(data); 
-});
+function getSpotify(query){
+	if(cmd2){
+		spotify.search({type: 'track', query: query}, function(error, data){
+			if(error) throw error;
+			console.log('');
+			console.log(data.tracks.items[0].album.artists[0].name);
+			console.log('=============');	
+			console.log(data.tracks.items[0].name);	
+			console.log('=============')
+			console.log(data.tracks.items[0].preview_url);
+			console.log('=============');
+			console.log(data.tracks.items[0].album.name);
+			console.log('');
 
-mdb.searchMovie({query: 'Mr. Nobody' }, function(err, res){
-  console.log(res);
-  writeLog(res); 
-});
+			writeLog('');
+			writeLog(data.tracks.items[0].album.artists[0].name);
+			writeLog('=============')
+			writeLog(data.tracks.items[0].name);
+			writeLog('=============');
+			writeLog(data.tracks.items[0].preview_url);
+			writeLog('=============');
+			writeLog(data.tracks.items[0].album.name);
+			writeLog('');
+		})
+	}
+
+	else {
+		spotify.lookup({type: 'track', id: '0hrBpAOgrt8RXigk83LLNE'}, function(error, data){
+			if(error) throw error;
+			console.log('');
+			console.log('You didn\'t put a song title in, so here you go:');
+			console.log('');
+			console.log(`Artist: ${data.album.artists[0].name}`);
+			console.log('=============');	
+			console.log(`Song title: ${data.name}`);	
+			console.log('=============')
+			console.log(`Preview URL: ${data.preview_url}`);
+			console.log('=============');
+			console.log(`Album: ${data.album.name}`);
+			console.log('');
+
+			writeLog('');
+			writeLog('You didn\'t put a song title in, so here you go:');
+			writeLog('');
+			writeLog(`Artist: ${data.album.artists[0].name}`);
+			writeLog('=============');	
+			writeLog(`Song title: ${data.name}`);	
+			writeLog('=============')
+			writeLog(`Preview URL: ${data.preview_url}`);
+			writeLog('=============');
+			writeLog(`Album: ${data.album.name}`);
+			writeLog('');
+		})
+	}	
+}
+
 
 
 function writeLog(data){
